@@ -28,4 +28,18 @@ x <- read_csv("~/data/census/censoc_dmf_v2/censoc_dmf_v2.csv",
                                     weight_conservative = col_double()))
 ```
 
+```{r create_small}
+small <- x %>%
+  slice_sample(prop = 0.01)
+```
+
+
+```{r}
+small %>%
+  filter(dmonth %in% c(1,7)) %>%
+  group_by(dyear, dmonth) %>%
+  summarize(deaths = n()) %>%
+  pivot_wider(names_from = dmonth, values_from = deaths) %>%
+  mutate (ratio = `1`/`7`)
+```
 
