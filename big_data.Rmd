@@ -29,5 +29,3 @@ x <- read_csv("~/data/census/censoc_dmf_v2/censoc_dmf_v2.csv",
 ```
 
 
-
-
